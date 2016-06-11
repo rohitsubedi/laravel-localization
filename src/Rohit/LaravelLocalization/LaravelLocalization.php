@@ -47,7 +47,7 @@ class LaravelLocalization
         $currentUrl = $this->request->server('REQUEST_URI');
 
         if ($lang && in_array($lang, $allLocales)) {
-            array_walk($allLocales, function(&$item, $key) use ($currentUrl) {
+            array_walk($allLocales, function(&$item, $key) use (&$currentUrl) {
                 if ($currentUrl === '/' . $item) {
                     $currentUrl = '/';
                 }
