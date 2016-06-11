@@ -49,6 +49,8 @@ The file `laravel-localization.php` will contain the following structure
 ```
 Here you can add as many locales available in your project and set the `default_locale` to the value for which you want to exclude the prefix
 
+__NOTE:__ You can keep this field blank if you want all prefix in th url
+
 __For Example:__
 
 If your project has `en` and `th` as the available locales and if you set `th` as your default locale. Then the url will look like,

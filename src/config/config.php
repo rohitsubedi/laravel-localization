@@ -4,7 +4,7 @@ return [
     // Add any language you want to support and comes as prefix in the url
     'all_locales' => [
         'en',
-        'np'
+        'th'
     ],
-    'default_locale' => 'np', // Default locale will not be shown in the url
+    'default_locale' => 'th', // Default locale will not be shown in the url
 ];
