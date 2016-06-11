@@ -35,17 +35,17 @@ After the package install is completed you need to configure `config/app.php` an
 After the above steps, you need to publish vendor for this packge. It will create `laravel-localization.php` file under `config` folder. This folder contains the configuration for your locales.
 
     php artisan vendor:publish --provider="Rohit\LaravelLocalization\LaravelLocalizationServiceProvider"
-
+    
 The file `laravel-localization.php` will contain the following structure
 ```php
     return [
-    // Add any language you want to support and comes as prefix in the url
-    'all_locales' => [
-        'en',
-        'th'
-    ],
-    'default_locale' => 'th', // Default locale will not be shown in the url
-];
+        // Add any language you want to support and comes as prefix in the url
+        'all_locales' => [
+            'en',
+            'th'
+        ],
+        'default_locale' => 'th', // Default locale will not be shown in the url
+    ];
 ```
 Here you can add as many locales available in your project and set the `default_locale` to the value for which you want to exclude the prefix
 
