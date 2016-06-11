@@ -35,7 +35,7 @@ After the package install is completed you need to configure `config/app.php` an
 After the above steps, you need to publish vendor for this packge. It will create `laravel-localization.php` file under `config` folder. This folder contains the configuration for your locales.
 
     php artisan vendor:publish --provider="Rohit\LaravelLocalization\LaravelLocalizationServiceProvider"
-    
+
 The file `laravel-localization.php` will contain the following structure
 ```php
     return [
@@ -85,3 +85,9 @@ Update `app\Http\routes.php` file and add all your routes under this group
         // All your routes here
     });
 ```
+
+### Helpers
+There is a helper function to get the url for language switcher on the current page. You simply need to call a function with the `locale`
+
+    Localization::getLocaleUrl('en')
+

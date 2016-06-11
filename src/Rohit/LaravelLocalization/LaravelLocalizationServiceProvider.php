@@ -35,7 +35,6 @@ class LaravelLocalizationServiceProvider extends ServiceProvider
         return ['modules.handler', 'modules'];
     }
 
-
     /**
      * Register the service provider.
      *

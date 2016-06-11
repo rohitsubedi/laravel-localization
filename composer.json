@@ -1,11 +1,10 @@
-
 {
     "name": "rohit/laravel-localization",
     "description": "localization for Laravel framework",
     "keywords": ["localization", "laravel", "php"],
     "homepage": "https://github.com/rohitsubedi/laravel-localization",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Rohit Subedi",

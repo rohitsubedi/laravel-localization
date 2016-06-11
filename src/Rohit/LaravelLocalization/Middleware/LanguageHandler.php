@@ -6,7 +6,6 @@ use Closure;
 
 class LanguageHandler
 {
-
     /**
      * Handle an incoming request.
      *
