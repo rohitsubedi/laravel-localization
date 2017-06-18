@@ -4,8 +4,6 @@ namespace Rohit\LaravelLocalization;
 
 class LaravelLocalization
 {
-    public $request;
-    public $app;
     /**
      * Creates New instances of app and request
      */
@@ -42,26 +40,22 @@ class LaravelLocalization
      */
     public function getLocaleUrl($lang = '')
     {
-        $allLocales = config('laravel-localization.all_locales', []);
-        $default    = config('laravel-localization.default_locale', '');
-        $currentUrl = $this->request->server('REQUEST_URI');
+        $allLocales  = config('laravel-localization.all_locales', []);
+        $default     = config('laravel-localization.default_locale', '');
+        $currentUrl  = $this->request->server('REQUEST_URI');
+        $replacelang = '/' . ($lang === $default ? '' : $lang);
 
         if ($lang && in_array($lang, $allLocales)) {
-            array_walk($allLocales, function(&$item, $key) use (&$currentUrl) {
-                if ($currentUrl === '/' . $item) {
-                    $currentUrl = '/';
-                }
+            $currentLang = $this->request->segment(1);
 
-                $item = '/' . $item . '/';
-            });
-
-            $currentUrl = str_replace($allLocales, '/', $currentUrl);
-
-            if ($default != $lang) {
-                $currentUrl = '/' .$lang . $currentUrl;
+            if (!in_array($currentLang, $allLocales)) {
+                $currentUrl = $replacelang . $currentUrl;
+            } else {
+                $langPos    = strpos($currentUrl, '/' . $currentLang);
+                $currentUrl = substr_replace($currentUrl, $replacelang, $langPos, strlen('/' . $currentLang));
             }
         }
 
-        return $currentUrl;
+        return str_replace('//', '/', $currentUrl);
     }
 }

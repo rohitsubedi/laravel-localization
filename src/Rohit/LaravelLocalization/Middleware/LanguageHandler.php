@@ -21,15 +21,9 @@ class LanguageHandler
         if (in_array($request->segment(1), $allLocales))
         {
             if($request->segment(1) === $default) {
-                array_walk($allLocales, function(&$item, $key) {
-                    $item = '/' . $item . '/';
-                });
-
-                $url = str_replace($allLocales, '/', $request->server('REQUEST_URI'));
-
-                if ($url === '/' . $default) {
-                    $url = '/';
-                }
+                $url = $request->server('REQUEST_URI');
+                $pos = strpos($url, '/' . $default);
+                $url = substr_replace($url, '', $pos, strlen('/' . $default));
 
                 return redirect($url);
             }
