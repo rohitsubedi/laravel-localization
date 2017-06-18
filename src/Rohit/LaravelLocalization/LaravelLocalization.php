@@ -2,16 +2,17 @@
 
 namespace Rohit\LaravelLocalization;
 
+use Illuminate\Http\Request;
+
 class LaravelLocalization
 {
+    protected $request;
     /**
      * Creates New instances of app and request
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
-        $this->app = app();
-
-        $this->request = $this->app['request'];
+        $this->request = $request;
     }
 
     /**
@@ -23,8 +24,8 @@ class LaravelLocalization
     {
         $lang = $this->request->segment(1);
 
-        if (in_array($lang, config('laravel-localization.all_locales'))) {
-            $this->app->setLocale($lang);
+        if (in_array($lang, config('laravel-localization.all_locales', []))) {
+            app()->setLocale($lang);
 
             return $lang;
         }

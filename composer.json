@@ -4,7 +4,7 @@
     "keywords": ["localization", "laravel", "php"],
     "homepage": "https://github.com/rohitsubedi/laravel-localization",
     "license": "MIT",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "authors": [
         {
             "name": "Rohit Subedi",
@@ -13,14 +13,21 @@
         }
     ],
     "require": {
-        "php": ">=5.5.9",
-        "laravel/framework": ">=5.1.0"
+        "php": ">=5.5.9"
+    },
+    "require-dev": {
+        "mockery/mockery": "dev-master",
+        "orchestra/testbench": "~3.3",
+        "phpunit/phpunit": "^6.3@dev"
     },
     "autoload": {
-        "classmap": [
-        ],
-        "psr-0": {
-            "Rohit\\LaravelLocalization": "src/"
+        "psr-4": {
+            "Rohit\\LaravelLocalization\\": "src/Rohit/LaravelLocalization"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rohit\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev"
