@@ -17,10 +17,11 @@ class LanguageHandler
     {
         $allLocales = config('laravel-localization.all_locales', []);
         $default    = config('laravel-localization.default_locale', '');
+        $locale     = $request->segment(1);
 
-        if (in_array($request->segment(1), $allLocales))
+        if (in_array($locale, $allLocales))
         {
-            if($request->segment(1) === $default) {
+            if($locale === $default) {
                 $url = $request->server('REQUEST_URI');
                 $pos = strpos($url, '/' . $default);
                 $url = substr_replace($url, '', $pos, strlen('/' . $default));

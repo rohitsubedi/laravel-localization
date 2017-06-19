@@ -7,13 +7,20 @@ use Illuminate\Http\Request;
 use Mockery as m;
 
 /**
- * @coversDefaultClass Rohit\LinePay\LinePay
+ * @coversDefaultClass Rohit\LaravelLocalization\LaravelLocalization
  */
-class LinePayTest extends TestCase
+class LaravelLocalizationTest extends TestCase
 {
     protected $localization;
     protected $request;
 
+    /**
+     * Setup config
+     *
+     * @param  $app
+     *
+     * @return null
+     */
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('laravel-localization.all_locales', [
@@ -24,6 +31,9 @@ class LinePayTest extends TestCase
         $app['config']->set('laravel-localization.default_locale', 'th');
     }
 
+    /**
+     * Test Setup
+     */
     public function setUp()
     {
         parent::setUp();
@@ -44,8 +54,6 @@ class LinePayTest extends TestCase
 
         $this->assertEquals($returnLang, 'en');
     }
-
-
 
     /**
      * @covers ::getLocaleUrl
