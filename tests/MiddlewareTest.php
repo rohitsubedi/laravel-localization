@@ -55,6 +55,7 @@ class MiddlewareTest extends TestCase
         $result = $this->handler->handle($this->request, function () {});
 
         $this->assertInstanceOf(RedirectResponse::class, $result);
+        $this->assertEquals($result->getTargetUrl(), $this->baseUrl . '/home-page');
     }
 
     /**
